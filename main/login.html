@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="pagina-acceso">
+      <div class="contenedor">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar" class="logo-empresa">
+        <h1>HuertoHogar</h1>
+
+        <div class="tarjeta-formulario">
+          <div class="encabezado-form">Inicio de sesión</div>
+          <div class="cuerpo-formulario">
+            <form id="form-login" novalidate>
+              <div class="campo">
+                <label for="correo-login">Correo</label>
+                <input type="email" id="correo-login" name="correo-login" maxlength="100" placeholder="ejemplo@duoc.cl" autocomplete="email">
+                <p class="mensaje-error"></p>
+              </div>
+              <div class="campo">
+                <label for="contrasena-login">Contraseña</label>
+                <input type="password" id="contrasena-login" name="contrasena-login" maxlength="10" autocomplete="current-password">
+                <p class="mensaje-error"></p>
+              </div>
+
+              <button type="submit" class="btn btn-primario btn-bloque">Iniciar sesión</button>
+              <p id="mensaje-exito-login" class="mensaje-confirmacion"></p>
+            </form>
+
+            <p class="enlace-alterno">¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            <p class="texto-ayuda centrado mb-20">Acceso administrador de prueba: admin@duoc.cl / admin123</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+  <script src="usuarios.js"></script>
+  <script src="validaciones-base.js"></script>
+  <script src="validaciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HuertoHogar - Del campo a tu hogar</title>
+  <meta name="description" content="HuertoHogar, tienda online de productos frescos y orgánicos directo del campo a tu hogar.">
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <!-- ================= ENCABEZADO ================= -->
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="contenedor hero-contenido">
+      <div class="hero-texto">
+        <h1>Tienda Online HuertoHogar</h1>
+        <p>
+          Llevamos la frescura y calidad de los productos del campo directamente a la
+          puerta de tu hogar. Con más de 6 años de experiencia, conectamos a las familias
+          chilenas con el campo, promoviendo un estilo de vida saludable y sostenible.
+        </p>
+        <a href="productos.html" class="btn btn-primario">⬇ Ver productos</a>
+      </div>
+      <div class="hero-imagen">
+        <img src="../img/hero.jpg" alt="Canasta de productos frescos HuertoHogar">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTOS DESTACADOS ================= -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <h2>Productos destacados</h2>
+        <p>Frescura del campo, seleccionada especialmente para ti.</p>
+      </div>
+      <div class="grilla-productos" id="grilla-destacados">
+        <!-- Se renderiza dinámicamente con JavaScript (script.js) -->
+      </div>
+      <p class="centrado" style="margin-top: 30px;">
+        <a href="productos.html" class="btn btn-secundario">Ver todos los productos</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= NUESTROS VALORES ================= -->
+  <section class="seccion" style="background-color:#fff;">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <h2>¿Por qué elegir HuertoHogar?</h2>
+      </div>
+      <div class="valores-grid">
+        <div class="tarjeta-valor">
+          <div class="icono">🌱</div>
+          <h3>100% Fresco</h3>
+          <p>Productos cosechados en su punto óptimo de madurez.</p>
+        </div>
+        <div class="tarjeta-valor">
+          <div class="icono">🚚</div>
+          <h3>Entrega directa</h3>
+          <p>Del campo a la puerta de tu hogar, en todo Chile.</p>
+        </div>
+        <div class="tarjeta-valor">
+          <div class="icono">🤝</div>
+          <h3>Comercio justo</h3>
+          <p>Apoyamos a agricultores y comunidades locales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Aviso flotante de "añadido al carrito" -->
+  <div id="aviso-flotante" style="display:none; position:fixed; bottom:20px; right:20px; background:#2E8B57; color:#fff; padding:14px 20px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,0.2); z-index:200;"></div>
+
+  <!-- ================= PIE DE PÁGINA ================= -->
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <h4>HuertoHogar</h4>
+          <ul>
+            <li>Del campo al hogar</li>
+            <li>Chile 🇨🇱</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="productos.html">Frutas Frescas</a></li>
+            <li><a href="productos.html">Verduras Orgánicas</a></li>
+            <li><a href="productos.html">Productos Orgánicos</a></li>
+            <li><a href="productos.html">Productos Lácteos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cuenta</h4>
+          <ul>
+            <li><a href="login.html">Iniciar sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+            <li><a href="carrito.html">Mi carrito</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">
+        © 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.
+      </div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

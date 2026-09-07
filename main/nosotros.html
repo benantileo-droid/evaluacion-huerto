@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+
+        <article class="bloque-nosotros">
+          <div>
+            <h1>Sobre HuertoHogar</h1>
+            <p>
+              HuertoHogar es una tienda online dedicada a llevar la frescura y calidad de los
+              productos del campo directamente a la puerta de nuestros clientes en Chile. Con
+              más de 6 años de experiencia, operamos en más de 9 puntos a lo largo del país,
+              incluyendo ciudades clave como Santiago, Puerto Montt, Villarica, Nacimiento,
+              Viña del Mar, Valparaíso y Concepción.
+            </p>
+            <p>
+              Nuestra misión es conectar a las familias chilenas con el campo, promoviendo un
+              estilo de vida saludable y sostenible, trabajando de la mano con agricultores y
+              productores locales.
+            </p>
+          </div>
+          <div>
+            <img src="../img/nosotros.jpg" alt="Campo de cultivo de HuertoHogar">
+          </div>
+        </article>
+
+        <div class="valores-grid">
+          <div class="tarjeta-valor">
+            <div class="icono">🌾</div>
+            <h3>Misión</h3>
+            <p>
+              Proporcionar productos frescos y de calidad directamente desde el campo hasta la
+              puerta de nuestros clientes, garantizando frescura y sabor en cada entrega.
+            </p>
+          </div>
+          <div class="tarjeta-valor">
+            <div class="icono">🌍</div>
+            <h3>Visión</h3>
+            <p>
+              Ser la tienda online líder en la distribución de productos frescos y naturales en
+              Chile, reconocida por nuestra calidad, servicio y compromiso con la sostenibilidad.
+            </p>
+          </div>
+          <div class="tarjeta-valor">
+            <div class="icono">👩‍💻</div>
+            <h3>Equipo desarrollador</h3>
+            <p>
+              Sitio desarrollado por estudiantes de Duoc UC como parte de la asignatura
+              Desarrollo Fullstack II, aplicando HTML5, CSS3 y JavaScript.
+            </p>
+          </div>
+        </div>
+
+        <div class="seccion-titulo" style="margin-top:60px;">
+          <h2>Nuestras tiendas</h2>
+          <p>Actualmente presentes en las siguientes ciudades de Chile</p>
+        </div>
+
+        <ul class="lista-tiendas">
+          <li>📍 Santiago</li>
+          <li>📍 Puerto Montt</li>
+          <li>📍 Villarica</li>
+          <li>📍 Nacimiento</li>
+          <li>📍 Viña del Mar</li>
+          <li>📍 Valparaíso</li>
+          <li>📍 Concepción</li>
+        </ul>
+
+        <div class="mapa-tiendas">
+          <div id="mapa-real" role="img" aria-label="Mapa con la ubicación de las 7 tiendas HuertoHogar en Chile"></div>
+          <p class="texto-ayuda">Mapa interactivo (OpenStreetMap) con nuestras 7 tiendas activas en Chile. Haz clic en un marcador para ver el nombre de la ciudad y abrirlo en Google Maps.</p>
+        </div>
+
+        <div class="seccion-titulo" style="margin-top:60px;">
+          <h2>¿Por qué es tan importante comer verduras?</h2>
+          <p>Un poco más sobre el valor de una alimentación con productos frescos</p>
+        </div>
+
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/7_IA6oipzCQ"
+            title="Frutas y verduras, alimentos esenciales en tu dieta"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <h4>HuertoHogar</h4>
+          <ul><li>Del campo al hogar</li><li>Chile 🇨🇱</li></ul>
+        </div>
+        <div>
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="productos.html">Frutas Frescas</a></li>
+            <li><a href="productos.html">Verduras Orgánicas</a></li>
+            <li><a href="productos.html">Productos Orgánicos</a></li>
+            <li><a href="productos.html">Productos Lácteos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cuenta</h4>
+          <ul>
+            <li><a href="login.html">Iniciar sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+            <li><a href="carrito.html">Mi carrito</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="mapa-tiendas.js"></script>
+</body>
+</html>

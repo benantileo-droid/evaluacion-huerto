@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <div class="seccion-titulo">
+          <h1>Contáctanos</h1>
+          <p>¿Tienes dudas o comentarios? Escríbenos y te responderemos a la brevedad.</p>
+        </div>
+
+        <div class="tarjeta-formulario">
+          <img src="../img/logo.svg" alt="Logo HuertoHogar" style="width:70px; margin:24px auto 0; border-radius:50%;">
+          <div style="text-align:center; font-family: var(--fuente-titulos); font-size:1.2rem; color: var(--color-marron); margin: 8px 0 4px;">HuertoHogar</div>
+          <div class="encabezado-form" style="text-align:center;">Formulario de contacto</div>
+          <div class="cuerpo-formulario">
+            <form id="form-contacto" novalidate>
+              <div class="campo">
+                <label for="nombre-contacto">Nombre completo</label>
+                <input type="text" id="nombre-contacto" name="nombre-contacto" maxlength="100" autocomplete="name">
+                <p class="mensaje-error"></p>
+              </div>
+
+              <div class="campo">
+                <label for="correo-contacto">Correo</label>
+                <input type="email" id="correo-contacto" name="correo-contacto" maxlength="100" placeholder="ejemplo@gmail.com" autocomplete="email">
+                <p class="texto-ayuda">Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com</p>
+                <p class="mensaje-error"></p>
+              </div>
+
+              <div class="campo">
+                <label for="comentario-contacto">Contenido del mensaje</label>
+                <textarea id="comentario-contacto" name="comentario-contacto" maxlength="500" placeholder="Cuéntanos en qué te podemos ayudar..."></textarea>
+                <p class="texto-ayuda" id="contador-comentario">0 / 500 caracteres</p>
+                <p class="mensaje-error"></p>
+              </div>
+
+              <button type="submit" class="btn btn-primario btn-bloque">Enviar mensaje</button>
+              <p id="mensaje-exito-contacto" class="mensaje-confirmacion"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <h4>HuertoHogar</h4>
+          <ul><li>Del campo al hogar</li><li>Chile 🇨🇱</li></ul>
+        </div>
+        <div>
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="productos.html">Frutas Frescas</a></li>
+            <li><a href="productos.html">Verduras Orgánicas</a></li>
+            <li><a href="productos.html">Productos Orgánicos</a></li>
+            <li><a href="productos.html">Productos Lácteos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cuenta</h4>
+          <ul>
+            <li><a href="login.html">Iniciar sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+            <li><a href="carrito.html">Mi carrito</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+  <script src="validaciones-base.js"></script>
+  <script src="validaciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El impacto de comprar directo del productor local - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <nav class="migas-pan"><a href="blogs.html">Blogs</a> &gt; Caso curioso #2</nav>
+
+        <article class="articulo-blog">
+          <img src="../img/blog2.jpg" alt="Sostenibilidad y agricultura local">
+          <h1>El impacto de comprar directo del productor local</h1>
+          <p class="meta">Publicado por el equipo de HuertoHogar</p>
+
+          <p>
+            Cada vez que eliges comprar productos frescos directamente desde el campo, tu
+            decisión tiene un impacto que va mucho más allá de tu mesa. En este artículo te
+            contamos por qué comprar local es una de las formas más simples de contribuir
+            a un futuro más sostenible.
+          </p>
+
+          <h2>Menos kilómetros, más frescura</h2>
+          <p>
+            Al reducir la distancia entre el campo y tu hogar, los productos llegan más
+            frescos y se disminuyen las emisiones de CO2 asociadas al transporte de larga
+            distancia. Esto es parte de lo que en HuertoHogar llamamos "huella de carbono
+            reducida".
+          </p>
+
+          <h2>Apoyo directo a las comunidades agrícolas</h2>
+          <p>
+            Comprar directamente a productores locales permite que una mayor parte del
+            valor de la venta llegue a quienes realmente cultivan la tierra, fortaleciendo
+            la economía de comunidades rurales en distintas regiones de Chile.
+          </p>
+
+          <h2>Prácticas agrícolas más sostenibles</h2>
+          <p>
+            Muchos de nuestros productores trabajan con técnicas orgánicas, evitando el uso
+            excesivo de pesticidas y promoviendo el cuidado del suelo a largo plazo. Esto se
+            traduce en productos más saludables para ti y para el medioambiente.
+          </p>
+
+          <h2>Una cadena de confianza más corta</h2>
+          <p>
+            Cuando conoces el origen de tus alimentos, es más fácil confiar en su calidad.
+            En cada ficha de producto de HuertoHogar podrás encontrar información sobre su
+            procedencia y las prácticas utilizadas en su cultivo.
+          </p>
+
+          <p style="margin-top:20px;">
+            Súmate al cambio: cada compra en HuertoHogar apoya a familias productoras a lo
+            largo de todo Chile. <a href="productos.html">Descubre nuestros productos aquí</a>.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

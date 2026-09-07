@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 hábitos para una alimentación más saludable - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <nav class="migas-pan"><a href="blogs.html">Blogs</a> &gt; Caso curioso #1</nav>
+
+        <article class="articulo-blog">
+          <img src="../img/blog1.jpg" alt="Alimentación saludable con frutas y verduras">
+          <h1>5 hábitos para una alimentación más saludable</h1>
+          <p class="meta">Publicado por el equipo de HuertoHogar</p>
+
+          <p>
+            Adoptar una alimentación más saludable no significa hacer cambios drásticos de la
+            noche a la mañana. Se trata de incorporar, poco a poco, hábitos simples que con el
+            tiempo se convierten en parte natural de tu rutina. Aquí te compartimos cinco
+            recomendaciones fáciles de aplicar.
+          </p>
+
+          <h2>1. Prioriza los productos de temporada</h2>
+          <p>
+            Las frutas y verduras de temporada suelen tener mejor sabor, mayor valor
+            nutricional y un precio más accesible. Además, al comprar productos locales
+            apoyas directamente a los agricultores de tu país.
+          </p>
+
+          <h2>2. Aumenta el consumo de verduras en cada comida</h2>
+          <p>
+            Intenta que al menos la mitad de tu plato esté compuesto por verduras frescas,
+            como espinacas, zanahorias o pimientos. Son una excelente fuente de vitaminas,
+            minerales y fibra.
+          </p>
+
+          <h2>3. Elige snacks naturales</h2>
+          <p>
+            Reemplaza los snacks ultraprocesados por opciones naturales como manzanas,
+            plátanos o frutos secos. Son prácticos, nutritivos y fáciles de llevar a
+            cualquier lugar.
+          </p>
+
+          <h2>4. Hidrátate de forma consciente</h2>
+          <p>
+            El agua debe ser tu principal fuente de hidratación. Puedes darle un toque
+            natural agregando rodajas de naranja o unas hojas de menta.
+          </p>
+
+          <h2>5. Cocina en casa con ingredientes frescos</h2>
+          <p>
+            Preparar tus propias comidas te permite controlar la calidad de los ingredientes
+            y reducir el consumo de conservantes y azúcares añadidos. Anímate a probar
+            nuevas recetas con productos orgánicos.
+          </p>
+
+          <p style="margin-top:20px;">
+            En HuertoHogar contamos con una amplia selección de frutas, verduras y productos
+            orgánicos para que puedas comenzar a aplicar estos hábitos desde hoy.
+            <a href="productos.html">Explora nuestro catálogo aquí</a>.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

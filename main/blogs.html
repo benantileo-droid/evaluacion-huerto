@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs - HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="index.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="menu-principal" id="menu-principal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-nav">
+        <span id="zona-invitado">
+          <a href="login.html">Iniciar sesión</a>
+          <a href="registro.html">Registrarse</a>
+        </span>
+        <span id="zona-usuario" class="zona-usuario" style="display:none;">
+          <span class="saludo-usuario">Hola, <strong id="nombre-usuario-nav"></strong></span>
+          <a href="../admin/home.html" id="link-panel-admin" style="display:none;">Panel admin</a>
+          <a href="#" id="cerrar-sesion-nav">Cerrar sesión</a>
+        </span>
+        <a href="carrito.html" class="carrito-icono" aria-label="Ver carrito">
+          🛒 <span class="contador-carrito">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <div class="seccion-titulo">
+          <h1>Noticias importantes</h1>
+          <p>Consejos y novedades sobre alimentación saludable y sostenibilidad.</p>
+        </div>
+
+        <div class="grilla-blogs">
+          <article class="tarjeta-blog">
+            <img src="../img/blog1.jpg" alt="Alimentación saludable">
+            <div class="contenido-blog">
+              <h3>Caso curioso #1: 5 hábitos para una alimentación más saludable</h3>
+              <p>
+                Pequeños cambios en tu rutina diaria pueden marcar una gran diferencia. Te
+                contamos cómo incorporar más frutas y verduras frescas en tu día a día.
+              </p>
+              <a href="blog-detalle-1.html" class="btn btn-secundario btn-pequeno">Ver caso</a>
+            </div>
+          </article>
+
+          <article class="tarjeta-blog">
+            <img src="../img/blog2.jpg" alt="Sostenibilidad y campo">
+            <div class="contenido-blog">
+              <h3>Caso curioso #2: El impacto de comprar directo del productor local</h3>
+              <p>
+                Comprar productos locales no solo beneficia tu salud, también apoya a las
+                comunidades agrícolas y reduce la huella de carbono de tus compras.
+              </p>
+              <a href="blog-detalle-2.html" class="btn btn-secundario btn-pequeno">Ver caso</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <h4>HuertoHogar</h4>
+          <ul><li>Del campo al hogar</li><li>Chile 🇨🇱</li></ul>
+        </div>
+        <div>
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="productos.html">Frutas Frescas</a></li>
+            <li><a href="productos.html">Verduras Orgánicas</a></li>
+            <li><a href="productos.html">Productos Orgánicos</a></li>
+            <li><a href="productos.html">Productos Lácteos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cuenta</h4>
+          <ul>
+            <li><a href="login.html">Iniciar sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+            <li><a href="carrito.html">Mi carrito</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">© 2026 HuertoHogar. Proyecto académico Duoc UC - Desarrollo Fullstack II.</div>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+  <script src="productos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
