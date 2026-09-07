@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar usuario - Panel administrador HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="home.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar Admin
+      </a>
+    </nav>
+  </header>
+
+  <div class="layout-admin">
+    <aside class="menu-admin" id="menu-admin"></aside>
+
+    <main class="contenido-admin">
+      <div class="encabezado-admin">
+        <h1>Editar usuario</h1>
+        <a href="usuarios.html" class="btn btn-secundario">← Volver al listado</a>
+      </div>
+
+      <div class="tarjeta-formulario" style="max-width:640px; margin:0;">
+        <div class="encabezado-form">Datos del usuario</div>
+        <div class="cuerpo-formulario">
+
+          <form id="form-editar-usuario" novalidate>
+
+            <div class="campo">
+              <label for="tipo-usuario">Tipo de usuario</label>
+              <select id="tipo-usuario" name="tipo-usuario">
+                <option value="Administrador">Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Cliente">Cliente</option>
+              </select>
+              <p class="mensaje-error"></p>
+            </div>
+
+            <div class="campo">
+              <label for="run">RUN (sin puntos ni guion)</label>
+              <input type="text" id="run" name="run" maxlength="9" disabled>
+              <p class="texto-ayuda">El RUN no se puede modificar una vez creado el usuario.</p>
+            </div>
+
+            <div class="campo-doble">
+              <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" maxlength="50">
+                <p class="mensaje-error"></p>
+              </div>
+              <div class="campo">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" maxlength="100">
+                <p class="mensaje-error"></p>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" maxlength="100">
+              <p class="texto-ayuda">Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com.</p>
+              <p class="mensaje-error"></p>
+            </div>
+
+            <div class="campo">
+              <label for="contrasena">Nueva contraseña (dejar en blanco para no cambiarla)</label>
+              <input type="password" id="contrasena" name="contrasena" maxlength="10">
+              <p class="texto-ayuda">Entre 4 y 10 caracteres.</p>
+              <p class="mensaje-error"></p>
+            </div>
+
+            <div class="campo-doble">
+              <div class="campo">
+                <label for="region">Región</label>
+                <select id="region" name="region">
+                  <option value="">-- Seleccione la región --</option>
+                </select>
+                <p class="mensaje-error"></p>
+              </div>
+              <div class="campo">
+                <label for="comuna">Comuna</label>
+                <select id="comuna" name="comuna">
+                  <option value="">-- Seleccione la comuna --</option>
+                </select>
+                <p class="mensaje-error"></p>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" name="direccion" maxlength="300">
+              <p class="mensaje-error"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primario btn-bloque">Guardar cambios</button>
+
+            <p id="mensaje-exito-registro" class="mensaje-confirmacion"></p>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../main/usuarios.js"></script>
+  <script src="../main/validaciones-base.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sesion = protegerRutaAdmin(["Administrador"]);
+      if (!sesion) return;
+
+      renderizarMenuAdmin(sesion, "usuarios");
+      mostrarSaludoAdmin(sesion);
+      inicializarRegiones("region", "comuna");
+
+      const parametros = new URLSearchParams(window.location.search);
+      const runObjetivo = parametros.get("run");
+      const usuario = runObjetivo ? buscarUsuarioPorRun(runObjetivo) : null;
+
+      if (!usuario) {
+        alert("No se encontró el usuario solicitado.");
+        window.location.href = "usuarios.html";
+        return;
+      }
+
+      // Precargar datos del usuario en el formulario.
+      document.getElementById("tipo-usuario").value = usuario.tipoUsuario;
+      document.getElementById("run").value = usuario.run;
+      document.getElementById("nombre").value = usuario.nombre;
+      document.getElementById("apellidos").value = usuario.apellidos;
+      document.getElementById("correo").value = usuario.correo;
+      document.getElementById("direccion").value = usuario.direccion;
+      document.getElementById("region").value = usuario.region;
+      document.getElementById("region").dispatchEvent(new Event("change"));
+      setTimeout(() => {
+        document.getElementById("comuna").value = usuario.comuna;
+      }, 0);
+
+      const form = document.getElementById("form-editar-usuario");
+
+      const reglas = {
+        nombre: [
+          { test: (v) => v.length > 0, mensaje: "El nombre es obligatorio." },
+          { test: (v) => v.length <= 50, mensaje: "El nombre no puede superar los 50 caracteres." },
+        ],
+        apellidos: [
+          { test: (v) => v.length > 0, mensaje: "Los apellidos son obligatorios." },
+          { test: (v) => v.length <= 100, mensaje: "Los apellidos no pueden superar los 100 caracteres." },
+        ],
+        correo: [
+          { test: (v) => v.length > 0, mensaje: "El correo es obligatorio." },
+          { test: (v) => v.length <= 100, mensaje: "El correo no puede superar los 100 caracteres." },
+          { test: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), mensaje: "Ingresa un correo con formato válido." },
+          { test: (v) => correoTieneDominioValido(v), mensaje: "Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com" },
+        ],
+        direccion: [
+          { test: (v) => v.length > 0, mensaje: "La dirección es obligatoria." },
+          { test: (v) => v.length <= 300, mensaje: "La dirección no puede superar los 300 caracteres." },
+        ],
+        region: [{ test: (v) => v.length > 0, mensaje: "Selecciona una región." }],
+        comuna: [{ test: (v) => v.length > 0, mensaje: "Selecciona una comuna." }],
+      };
+
+      Object.keys(reglas).forEach((id) => {
+        const input = document.getElementById(id);
+        if (input) input.addEventListener("blur", () => validarCampo(id, reglas[id]));
+      });
+
+      form.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+        let esValido = true;
+        Object.keys(reglas).forEach((id) => {
+          if (!validarCampo(id, reglas[id])) esValido = false;
+        });
+
+        const nuevaContrasena = document.getElementById("contrasena").value;
+        if (nuevaContrasena.length > 0 && (nuevaContrasena.length < 4 || nuevaContrasena.length > 10)) {
+          marcarInvalido("contrasena", "La contraseña debe tener entre 4 y 10 caracteres.");
+          esValido = false;
+        }
+
+        const correoValor = document.getElementById("correo").value.trim();
+        const otroUsuarioConCorreo = buscarUsuarioPorCorreo(correoValor);
+        if (esValido && otroUsuarioConCorreo && otroUsuarioConCorreo.run !== usuario.run) {
+          marcarInvalido("correo", "Ya existe otra cuenta registrada con este correo.");
+          esValido = false;
+        }
+
+        const mensajeExito = document.getElementById("mensaje-exito-registro");
+        if (esValido) {
+          const datosActualizados = {
+            nombre: document.getElementById("nombre").value.trim(),
+            apellidos: document.getElementById("apellidos").value.trim(),
+            correo: correoValor,
+            tipoUsuario: document.getElementById("tipo-usuario").value,
+            region: document.getElementById("region").value,
+            comuna: document.getElementById("comuna").value,
+            direccion: document.getElementById("direccion").value.trim(),
+          };
+          if (nuevaContrasena.length > 0) {
+            datosActualizados.contrasena = nuevaContrasena;
+          }
+          actualizarUsuario(usuario.run, datosActualizados);
+
+          mensajeExito.style.display = "block";
+          mensajeExito.textContent = "¡Cambios guardados! Redirigiendo al listado...";
+          setTimeout(() => {
+            window.location.href = "usuarios.html";
+          }, 1000);
+        } else {
+          mensajeExito.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
