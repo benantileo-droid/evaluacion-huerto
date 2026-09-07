@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios - Panel administrador HuertoHogar</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav">
+      <a href="home.html" class="logo-sitio">
+        <img src="../img/logo.svg" alt="Logo HuertoHogar">
+        HuertoHogar Admin
+      </a>
+    </nav>
+  </header>
+
+  <div class="layout-admin">
+    <aside class="menu-admin" id="menu-admin"></aside>
+
+    <main class="contenido-admin">
+      <div class="encabezado-admin">
+        <h1>Usuarios</h1>
+        <a href="usuario-nuevo.html" class="btn btn-primario">+ Nuevo usuario</a>
+      </div>
+
+      <div class="tarjeta-admin">
+        <table class="tabla-admin">
+          <thead>
+            <tr>
+              <th>RUN</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Comuna</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-tabla-usuarios"></tbody>
+        </table>
+        <p class="aviso-vacio-admin" id="aviso-sin-usuarios" style="display:none;">
+          Aún no hay usuarios registrados.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../main/usuarios.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sesion = protegerRutaAdmin(["Administrador"]);
+      if (!sesion) return;
+
+      renderizarMenuAdmin(sesion, "usuarios");
+      mostrarSaludoAdmin(sesion);
+
+      pintarTablaUsuarios();
+    });
+
+    function pintarTablaUsuarios() {
+      const usuarios = obtenerUsuarios();
+      const cuerpo = document.getElementById("cuerpo-tabla-usuarios");
+      const aviso = document.getElementById("aviso-sin-usuarios");
+      cuerpo.innerHTML = "";
+
+      if (usuarios.length === 0) {
+        aviso.style.display = "block";
+        return;
+      }
+      aviso.style.display = "none";
+
+      usuarios.forEach((u) => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${u.run}</td>
+          <td>${u.nombre} ${u.apellidos || ""}</td>
+          <td>${u.correo}</td>
+          <td><span class="etiqueta-rol ${u.tipoUsuario}">${u.tipoUsuario}</span></td>
+          <td>${u.comuna || "-"}</td>
+          <td class="acciones-tabla">
+            <div class="fila-acciones">
+              <a class="editar" href="usuario-editar.html?run=${encodeURIComponent(u.run)}">Editar</a>
+              <button class="eliminar" data-run="${u.run}">Eliminar</button>
+            </div>
+          </td>
+        `;
+        cuerpo.appendChild(fila);
+      });
+
+      cuerpo.querySelectorAll(".eliminar").forEach((boton) => {
+        boton.addEventListener("click", () => {
+          const run = boton.getAttribute("data-run");
+          const sesionActual = obtenerSesion();
+          if (sesionActual && sesionActual.run === run) {
+            alert("No puedes eliminar el usuario con el que iniciaste sesión.");
+            return;
+          }
+          if (confirm("¿Eliminar este usuario? Esta acción no se puede deshacer.")) {
+            eliminarUsuario(run);
+            pintarTablaUsuarios();
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
